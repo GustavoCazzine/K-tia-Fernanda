@@ -5,10 +5,14 @@
     box-sizing: border-box;
 }
 
-body {
+body{
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
+}
+
+html{
+    scroll-behavior: smooth
 }
 
 /* Cores Definidas */
@@ -724,5 +728,91 @@ span {
     .contato-formulario,
     .contato-info {
         flex: 1;
+    }
+}
+
+/* RODAPÉ */
+/* Rodapé */
+.rodape {
+    padding: 30px 5%;
+    background-color: var(--preto); /* Fundo preto */
+    color: var(--branco); /* Texto branco */
+    text-align: center;
+}
+
+.rodape-container {
+    display: flex;
+    flex-direction: column; /* Coluna para mobile */
+    gap: 20px; /* Espaço entre as seções */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.rodape-info p {
+    font-size: 14px;
+    color: var(--cinza-claro); /* Texto cinza claro */
+}
+
+.rodape-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os links */
+}
+
+.rodape-links ul li a {
+    text-decoration: none;
+    color: var(--branco); /* Texto branco */
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.rodape-links ul li a:hover {
+    color: var(--dourado); /* Hover dourado */
+}
+
+.rodape-redes {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaço entre os ícones */
+}
+
+.rodape-redes a {
+    color: var(--branco); /* Ícones brancos */
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.rodape-redes a:hover {
+    color: var(--dourado); /* Hover dourado */
+}
+
+.rodape-creditos {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--cinza-claro); /* Texto cinza claro */
+}
+
+.rodape-creditos a {
+    color: var(--dourado); /* Link dourado */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.rodape-creditos a:hover {
+    color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+/* Layout para telas maiores (tablet e desktop) */
+@media (min-width: 768px) {
+    .rodape-container {
+        flex-direction: row; /* Linha para desktop */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .rodape-links ul {
+        gap: 20px; /* Aumenta o espaço entre os links */
     }
 }
