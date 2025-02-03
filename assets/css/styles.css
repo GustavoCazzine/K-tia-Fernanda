@@ -1,0 +1,728 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Cores Definidas */
+:root {
+    --preto: #000000;
+    --branco: #FFFFFF;
+    --dourado: #D4AF37; /* Dourado */
+    --dourado-suave: #E5C36E; /* Dourado suave */
+    --bege: #F5F5DC; /* Bege suave */
+    --cinza-claro: #F0F0F0;
+    --cinza-escuro: #555555;
+}
+
+
+/* CABECALHO E SEÇÃO HERO */
+/* Cabeçalho Fixo */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: var(--branco); /* Fundo branco */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px; /* Ajuste conforme necessário */
+    width: auto;
+    mix-blend-mode: multiply; /* Mescla com o fundo */
+    background-color: transparent;
+    }
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--cinza-claro); /* Texto cinza claro */
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.menu ul li a:hover {
+    color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+.botao-cta {
+    background-color: var(--dourado-suave); /* Fundo dourado suave */
+    color: var(--branco); /* Texto branco */
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .9rem;
+    transition: background-color 0.3s;
+}
+
+.botao-cta:hover {
+    background-color: var(--dourado); /* Hover dourado */
+}
+
+/* Seção Hero */
+.hero {
+    background-color: var(--branco); /* Fundo branco */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--preto); /* Texto preto */
+    padding: 0 5%;
+}
+
+.hero-conteudo h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.hero-conteudo h2 span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+.hero-conteudo p {
+    font-size: 1rem;
+    color: var(--cinza-claro); /* Texto cinza claro */
+    margin-bottom: 20px;
+}
+
+.botao-hero {
+    background-color: var(--dourado); /* Fundo dourado */
+    color: var(--preto); /* Texto preto */
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.botao-hero:hover {
+    background-color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+/* Menu Hambúrguer (Mobile) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Exibe o botão em telas pequenas */
+    }
+
+    .menu {
+        display: none; /* Oculta o menu inicialmente */
+        flex-direction: column;
+        position: fixed; /* Fixa o menu na tela */
+        top: 70px;
+        right: 0; /* Alinha o menu à direita */
+        background-color: var(--preto); /* Fundo preto */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px 0 0 5px; /* Bordas arredondadas à esquerda */
+        width: 60%; /* Largura do menu */
+        padding: 10px;
+        z-index: 1000; /* Garante que o menu fique acima de outros elementos */
+    }
+
+    .menu.active {
+        display: flex; /* Exibe o menu quando ativo */
+    }
+
+    .menu ul {
+        flex-direction: column; /* Itens do menu em coluna */
+        gap: 10px;
+    }
+
+    .menu ul li a {
+        font-size: 1rem;
+        display: block; /* Garante que cada link ocupe toda a largura */
+        padding: 10px;
+    }
+
+    .botao-cta {
+        margin-top: 10px;
+    }
+}
+
+/* SEÇÃO SOBRE MIM */
+/* Seção Sobre Mim */
+.sobre-mim {
+    display: flex;
+    flex-direction: column; /* Coluna para mobile */
+    align-items: center;
+    padding: 50px 5%;
+    background-color: var(--bege); /* Fundo bege suave */
+}
+
+.sobre-conteudo {
+    max-width: 600px;
+    text-align: center; /* Centraliza o conteúdo em mobile */
+}
+
+.sobre-conteudo h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--preto); /* Texto preto */
+}
+
+.sobre-conteudo h2 span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+.sobre-conteudo p {
+    font-size: 2rem;
+    color: var(--cinza-escuro); /* Texto cinza escuro */
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.sobre-conteudo ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.sobre-conteudo ul li {
+    font-size: 1rem;
+    color: var(--cinza-escuro); /* Texto cinza escuro */
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+}
+
+.sobre-conteudo ul li::before {
+    content: '💎'; /* Ícone de diamante */
+    color: var(--dourado); /* Cor dourada */
+}
+
+.botao-sobre {
+    background-color: var(--dourado); /* Fundo dourado */
+    color: var(--branco); /* Texto branco */
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.botao-sobre:hover {
+    background-color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+.sobre-imagem {
+    margin-top: 30px;
+    max-width: 400px; /* Limita o tamanho da imagem */
+    width: 100%;
+    border-radius: 10px; /* Bordas arredondadas */
+    overflow: hidden; /* Garante que a imagem não ultrapasse as bordas */
+}
+
+.sobre-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Layout para telas maiores (tablet e desktop) */
+@media (min-width: 768px) {
+    .sobre-mim {
+        flex-direction: row; /* Linha para desktop */
+        justify-content: space-between;
+        padding: 100px 10%;
+    }
+
+    .sobre-conteudo {
+        max-width: 50%;
+        text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    .sobre-imagem {
+        margin-top: 0;
+        max-width: 45%; /* Ajusta o tamanho da imagem */
+    }
+}
+
+/* SEÇÃO SERVIÇOS */
+/* Seção Serviços */
+.servicos {
+    padding: 50px 5%;
+    background-color: var(--branco); /* Fundo branco */
+    text-align: center;
+}
+
+.servicos h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--preto); /* Texto preto */
+}
+
+.servicos h2 span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+.servicos-container {
+    display: flex;
+    flex-direction: column; /* Coluna para mobile */
+    gap: 20px; /* Espaço entre os cards */
+    margin-top: 30px;
+}
+
+.servico-card {
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro); /* Borda sutil */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-card:hover {
+    transform: translateY(-10px); /* Efeito de levantar */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.servico-card img {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin-bottom: 15px;
+}
+
+.servico-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--preto); /* Texto preto */
+}
+
+.servico-card p {
+    font-size: 1rem;
+    color: var(--cinza-escuro); /* Texto cinza escuro */
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.botao-servico {
+    background-color: var(--dourado); /* Fundo dourado */
+    color: var(--branco); /* Texto branco */
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 2.85rem;
+    transition: background-color 0.3s;
+}
+
+.botao-servico:hover {
+    background-color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+/* Layout para telas maiores (tablet e desktop) */
+@media (min-width: 768px) {
+    .servicos-container {
+        flex-direction: row; /* Linha para desktop */
+        justify-content: space-between;
+    }
+
+    .servico-card {
+        flex: 1; /* Distribui o espaço igualmente */
+        max-width: 30%; /* Limita a largura dos cards */
+    }
+}
+
+/* SEÇÃO PORTFÓLIO */
+/* Seção Portfólio */
+.portfolio {
+    padding: 50px 5%;
+    background-color: var(--preto); /* Fundo preto */
+    text-align: center;
+}
+
+.portfolio h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--dourado); /* Título dourado */
+}
+
+.portfolio h2 span {
+    color: var(--branco); /* Detalhe branco */
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout responsivo */
+    gap: 20px; /* Espaço entre os itens */
+    margin-top: 30px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    display: block;
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Overlay escuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.3s;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1; /* Mostra o overlay ao passar o mouse */
+}
+
+.portfolio-overlay p {
+    color: var(--branco); /* Texto branco */
+    font-size: 1.12rempx;
+    font-weight: 500;
+    text-align: center;
+}
+
+.botao-portfolio {
+    background-color: var(--dourado-suave); /* Fundo dourado suave */
+    color: var(--preto); /* Texto preto */
+    padding: 12px 24px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 30px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.botao-portfolio:hover {
+    background-color: var(--dourado); /* Hover dourado */
+}
+
+/* SECÃO DEPOIMENTOS */
+/* Seção Depoimentos */
+.depoimentos {
+    padding: 50px 5%;
+    background-color: var(--bege); /* Fundo bege suave */
+    text-align: center;
+    overflow: hidden; /* Esconde o overflow do carrossel */
+}
+
+.depoimentos h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--preto); /* Título preto */
+}
+
+.depoimentos h2 span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+.depoimentos-carrossel {
+    display: flex;
+    gap: 20px; /* Espaço entre os cards */
+    padding: 20px 0;
+    transition: transform 0.5s ease-in-out; /* Transição suave */
+}
+
+.depoimento-card {
+    flex: 0 0 300px; /* Largura fixa para os cards */
+    background-color: var(--branco); /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    scroll-snap-align: start; /* Alinha os cards ao rolar */
+}
+
+.depoimento-card blockquote {
+    font-size: 1rem;
+    color: var(--preto); /* Texto preto */
+    line-height: 1.6;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.aspas {
+    font-size: 2rem;
+    color: var(--dourado); /* Aspas douradas */
+    font-family: serif;
+    position: absolute;
+    top: -10px;
+}
+
+.aspas:first-child {
+    left: -10px;
+}
+
+.aspas:last-child {
+    right: -10px;
+    bottom: -20px;
+}
+
+.cliente-info {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a foto e o nome */
+}
+
+.cliente-foto {
+    width: 40px; /* Tamanho da foto */
+    height: 40px;
+    border-radius: 50%; /* Foto redonda */
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+.cliente-nome {
+    font-size: 0.87rem;
+    color: var(--cinza-escuro); /* Nome em cinza escuro */
+    font-weight: 500;
+}
+
+/* CARROSSEL DEPOIMENTOS */
+/* Estilo da Seção Depoimentos */
+.swiper.mySwiper {
+    padding: 50px 5%;
+    background-color: var(--bege); /* Fundo bege suave */
+    overflow: hidden;
+}
+
+.container__conteudo__titulo {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--preto); /* Título preto */
+}
+
+.container__conteudo__titulo span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+.feedback-container {
+    background-color: var(--branco); /* Fundo branco */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 0 auto;
+    max-width: 400px; /* Largura máxima dos cards */
+    opacity: 0.5; /* Opacidade reduzida para slides não ativos */
+    transition: opacity 0.3s ease; /* Transição suave */
+}
+
+.swiper-slide-active .feedback-container {
+    opacity: 1; /* Opacidade total para o slide ativo */
+}
+
+.feedback__alinhamento {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre a foto e o nome */
+    margin-bottom: 15px;
+}
+
+.profile-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Foto redonda */
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+.client-name {
+    font-size: 1.15rem;
+    color: var(--preto); /* Nome preto */
+    font-weight: 600;
+}
+
+.feedback-content {
+    font-size: 1rem;
+    color: var(--cinza-escuro); /* Texto cinza escuro */
+    line-height: 1.6;
+}
+
+.client-comment {
+    margin-bottom: 10px;
+}
+
+/* Estilo da paginação do Swiper */
+.swiper-pagination {
+    position: relative;
+    margin-top: 20px;
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--cinza-claro); /* Cor dos pontos */
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--dourado); /* Cor do ponto ativo */
+}
+
+/* SEÇÃO CONTATO */
+/* Seção Contatos */
+.contato {
+    padding: 50px 5%;
+    background-color: var(--branco); /* Fundo branco */
+    text-align: center;
+}
+
+.contato h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: var(--preto); /* Título preto */
+}
+
+.contato h2 span {
+    color: var(--dourado); /* Detalhe dourado */
+}
+
+.contato-container {
+    display: flex;
+    flex-direction: column; /* Coluna para mobile */
+    gap: 30px; /* Espaço entre o formulário e as informações */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contato-formulario {
+    flex: 1;
+}
+
+.contato-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os campos */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--cinza-claro); /* Borda cinza claro */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px;
+    color: var(--cinza-escuro); /* Texto cinza escuro */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.botao-contato {
+    background-color: var(--dourado); /* Fundo dourado */
+    color: var(--branco); /* Texto branco */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.botao-contato:hover {
+    background-color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+.contato-info {
+    flex: 1;
+    text-align: left;
+}
+
+.contato-info h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--preto); /* Título preto */
+}
+
+.contato-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contato-info ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o ícone e o texto */
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--cinza-escuro); /* Texto cinza escuro */
+}
+
+.contato-info ul li i {
+    color: var(--dourado); /* Ícones dourados */
+    font-size: 20px;
+}
+
+.redes-sociais {
+    display: flex;
+    gap: 15px; /* Espaço entre os ícones */
+    margin-top: 20px;
+}
+
+.redes-sociais a {
+    color: var(--dourado); /* Ícones dourados */
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.redes-sociais a:hover {
+    color: var(--dourado-suave); /* Hover dourado suave */
+}
+
+/* Layout para telas maiores (tablet e desktop) */
+@media (min-width: 768px) {
+    .contato-container {
+        flex-direction: row; /* Linha para desktop */
+    }
+
+    .contato-formulario,
+    .contato-info {
+        flex: 1;
+    }
+}
