@@ -816,3 +816,64 @@ span {
         gap: 20px; /* Aumenta o espaço entre os links */
     }
 }
+
+/* Barra Lateral de RedesSociais */
+.social-bar {
+    position: fixed;
+    left: -60px; /* Começa fora da tela */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(1px);
+    padding: 10px 5px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0);
+    z-index: 9999;
+    transition: left 0.4s ease-in-out, background 0.4s ease-in-out, color 0.4s ease-in-out; /* Transições suaves */
+}
+
+.social-bar.visible {
+    left: 0; /* Quando visível, aparece no lado esquerdo da tela */
+}
+
+.social-icon {
+    margin: 10px 0;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+.newsletter {
+    margin-top: 20px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 14px;
+    color: var(--cor-titulo);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.newsletter:hover {
+    color: var(--cor-botoes);
+}
+
+#socialBar {
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out; /* Transições suaves para fundo e texto */
+}
+
+.toggle-bar {
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--cor-titulo);
+    transition: color 0.3s ease;
+}
+
+.toggle-bar:hover {
+    color: var(--cor-botoes);
+}
