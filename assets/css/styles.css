@@ -393,12 +393,14 @@ span {
     position: relative;
     overflow: hidden;
     border-radius: 10px; /* Bordas arredondadas */
+    aspect-ratio: 1 / 1; /* Proporção quadrada para as imagens */
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 250px; /* Altura fixa para as imagens */
+    height: 100%; /* Ocupa toda a altura do contêiner */
     object-fit: cover; /* Garante que a imagem cubra o espaço */
+    object-position: center; /* Centraliza o foco da imagem */
     display: block;
     transition: transform 0.3s;
 }
@@ -427,9 +429,10 @@ span {
 
 .portfolio-overlay p {
     color: var(--branco); /* Texto branco */
-    font-size: 1.12rempx;
+    font-size: 1.12rem;
     font-weight: 500;
     text-align: center;
+    padding: 10px; /* Espaçamento interno */
 }
 
 .botao-portfolio {
@@ -449,87 +452,35 @@ span {
     background-color: var(--dourado); /* Hover dourado */
 }
 
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .portfolio-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Colunas menores em telas pequenas */
+        gap: 15px; /* Espaço menor entre os itens */
+    }
+
+    .portfolio-item {
+        aspect-ratio: 1 / 1; /* Mantém a proporção quadrada */
+    }
+
+    .portfolio-overlay p {
+        font-size: 1rem; /* Texto menor em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Colunas ainda menores em telas muito pequenas */
+        gap: 10px; /* Espaço mínimo entre os itens */
+    }
+
+    .portfolio-overlay p {
+        font-size: 0.9rem; /* Texto ainda menor em telas muito pequenas */
+    }
+}
+
 /* SECÃO DEPOIMENTOS */
 /* Seção Depoimentos */
-.depoimentos {
-    padding: 50px 5%;
-    background-color: var(--bege); /* Fundo bege suave */
-    text-align: center;
-    overflow: hidden; /* Esconde o overflow do carrossel */
-}
-
-.depoimentos h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: var(--preto); /* Título preto */
-}
-
-.depoimentos h2 span {
-    color: var(--dourado); /* Detalhe dourado */
-}
-
-.depoimentos-carrossel {
-    display: flex;
-    gap: 20px; /* Espaço entre os cards */
-    padding: 20px 0;
-    transition: transform 0.5s ease-in-out; /* Transição suave */
-}
-
-.depoimento-card {
-    flex: 0 0 300px; /* Largura fixa para os cards */
-    background-color: var(--branco); /* Fundo branco */
-    border-radius: 10px; /* Bordas arredondadas */
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    scroll-snap-align: start; /* Alinha os cards ao rolar */
-}
-
-.depoimento-card blockquote {
-    font-size: 1rem;
-    color: var(--preto); /* Texto preto */
-    line-height: 1.6;
-    margin-bottom: 15px;
-    position: relative;
-}
-
-.aspas {
-    font-size: 2rem;
-    color: var(--dourado); /* Aspas douradas */
-    font-family: serif;
-    position: absolute;
-    top: -10px;
-}
-
-.aspas:first-child {
-    left: -10px;
-}
-
-.aspas:last-child {
-    right: -10px;
-    bottom: -20px;
-}
-
-.cliente-info {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espaço entre a foto e o nome */
-}
-
-.cliente-foto {
-    width: 40px; /* Tamanho da foto */
-    height: 40px;
-    border-radius: 50%; /* Foto redonda */
-    object-fit: cover; /* Garante que a imagem cubra o espaço */
-}
-
-.cliente-nome {
-    font-size: 0.87rem;
-    color: var(--cinza-escuro); /* Nome em cinza escuro */
-    font-weight: 500;
-}
-
-/* CARROSSEL DEPOIMENTOS */
-/* Estilo da Seção Depoimentos */
 .swiper.mySwiper {
     padding: 50px 5%;
     background-color: var(--bege); /* Fundo bege suave */
@@ -553,7 +504,11 @@ span {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
     margin: 0 auto;
-    max-width: 400px; /* Largura máxima dos cards */
+    max-width: 600px; /* Largura máxima dos cards */
+    height: 200px; /* Altura fixa dos cards */
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espaço entre a imagem e o conteúdo */
     opacity: 0.5; /* Opacidade reduzida para slides não ativos */
     transition: opacity 0.3s ease; /* Transição suave */
 }
@@ -565,25 +520,27 @@ span {
 .feedback__alinhamento {
     display: flex;
     align-items: center;
-    gap: 10px; /* Espaço entre a foto e o nome */
-    margin-bottom: 15px;
+    gap: 20px; /* Espaço entre a foto e o nome */
 }
 
 .profile-photo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; /* Foto redonda */
+    width: 100%; /* A imagem ocupa 100% da largura do contêiner */
+    max-width: 150px; /* Largura máxima da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    border-radius: 10px; /* Bordas arredondadas */
     object-fit: cover; /* Garante que a imagem cubra o espaço */
+    object-position: center; /* Centraliza o foco da imagem */
 }
 
 .client-name {
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: var(--preto); /* Nome preto */
     font-weight: 600;
+    margin-bottom: 10px; /* Espaço entre o nome e o comentário */
 }
 
 .feedback-content {
-    font-size: 1rem;
+    font-size: .8rem;
     color: var(--cinza-escuro); /* Texto cinza escuro */
     line-height: 1.6;
 }
@@ -607,215 +564,134 @@ span {
     background-color: var(--dourado); /* Cor do ponto ativo */
 }
 
-/* SEÇÃO CONTATO */
-/* Seção Contatos */
-.contato {
-    padding: 50px 5%;
-    background-color: var(--branco); /* Fundo branco */
+/* RODAPÉ */
+/* Estilo da Seção Signup */
+.signup-section {
+    background: linear-gradient(135deg, var(--dourado), var(--dourado-suave)); /* Gradiente dourado */
+    color: var(--preto); /* Texto preto */
     text-align: center;
-}
-
-.contato h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: var(--preto); /* Título preto */
-}
-
-.contato h2 span {
-    color: var(--dourado); /* Detalhe dourado */
-}
-
-.contato-container {
-    display: flex;
-    flex-direction: column; /* Coluna para mobile */
-    gap: 30px; /* Espaço entre o formulário e as informações */
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.contato-formulario {
-    flex: 1;
-}
-
-.contato-formulario form {
+    padding: 40px 20px;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    margin: 0 10%; /* Espaçamento nas laterais */
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Espaço entre os campos */
+    gap: 20px; /* Espaço entre o conteúdo e a seção de contatos */
+    position: relative; /* Para garantir que fique acima do rodapé */
+    z-index: 1; /* Eleva a seção acima do rodapé */
 }
 
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--cinza-claro); /* Borda cinza claro */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: 16px;
-    color: var(--cinza-escuro); /* Texto cinza escuro */
+.signup-content h2 {
+    font-size: 28px; /* Título maior para chamar atenção */
+    margin-bottom: 15px;
+    color: var(--preto); /* Texto preto */
 }
 
-.form-group textarea {
-    resize: vertical; /* Permite redimensionar verticalmente */
+.signup-content p {
+    font-size: 18px; /* Texto um pouco maior para melhor leitura */
+    margin-bottom: 25px;
+    color: var(--preto); /* Texto preto */
+    line-height: 1.6;
 }
 
-.botao-contato {
-    background-color: var(--dourado); /* Fundo dourado */
-    color: var(--branco); /* Texto branco */
-    padding: 12px 24px;
+.signup-content button {
+    background-color: var(--branco); /* Fundo branco */
+    color: var(--preto); /* Texto preto */
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 15px 30px; /* Botão maior */
+    font-size: 18px; /* Texto maior */
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s;
+    font-weight: 600; /* Texto em negrito */
 }
 
-.botao-contato:hover {
-    background-color: var(--dourado-suave); /* Hover dourado suave */
+.signup-content button:hover {
+    background-color: var(--cinza-claro); /* Fundo cinza claro ao passar o mouse */
 }
 
-.contato-info {
-    flex: 1;
-    text-align: left;
-}
-
-.contato-info h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: var(--preto); /* Título preto */
-}
-
-.contato-info ul {
-    list-style: none;
-    padding: 0;
-}
-
-.contato-info ul li {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espaço entre o ícone e o texto */
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: var(--cinza-escuro); /* Texto cinza escuro */
-}
-
-.contato-info ul li i {
-    color: var(--dourado); /* Ícones dourados */
-    font-size: 20px;
-}
-
-.redes-sociais {
-    display: flex;
-    gap: 15px; /* Espaço entre os ícones */
-    margin-top: 20px;
-}
-
-.redes-sociais a {
-    color: var(--dourado); /* Ícones dourados */
-    font-size: 24px;
-    transition: color 0.3s;
-}
-
-.redes-sociais a:hover {
-    color: var(--dourado-suave); /* Hover dourado suave */
-}
-
-/* Layout para telas maiores (tablet e desktop) */
-@media (min-width: 768px) {
-    .contato-container {
-        flex-direction: row; /* Linha para desktop */
-    }
-
-    .contato-formulario,
-    .contato-info {
-        flex: 1;
-    }
-}
-
-/* RODAPÉ */
-/* Rodapé */
 .rodape {
-    padding: 30px 5%;
-    background-color: var(--preto); /* Fundo preto */
-    color: var(--branco); /* Texto branco */
-    text-align: center;
+padding: 30px 5%;
+background-color: var(--preto);
+color: var(--branco);
+text-align: center;
 }
 
 .rodape-container {
-    display: flex;
-    flex-direction: column; /* Coluna para mobile */
-    gap: 20px; /* Espaço entre as seções */
-    max-width: 1200px;
-    margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 20px;
+max-width: 1200px;
+margin: 0 auto;
 }
 
 .rodape-info p {
-    font-size: 14px;
-    color: var(--cinza-claro); /* Texto cinza claro */
+font-size: 14px;
+color: var(--cinza-claro);
 }
 
 .rodape-links ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Espaço entre os links */
+list-style: none;
+padding: 0;
+display: flex;
+justify-content: center;
+gap: 15px;
 }
 
 .rodape-links ul li a {
-    text-decoration: none;
-    color: var(--branco); /* Texto branco */
-    font-size: 14px;
-    transition: color 0.3s;
+text-decoration: none;
+color: var(--branco);
+font-size: 14px;
+transition: color 0.3s;
 }
 
 .rodape-links ul li a:hover {
-    color: var(--dourado); /* Hover dourado */
+color: var(--dourado);
 }
 
 .rodape-redes {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Espaço entre os ícones */
+display: flex;
+justify-content: center;
+gap: 15px;
 }
 
 .rodape-redes a {
-    color: var(--branco); /* Ícones brancos */
-    font-size: 20px;
-    transition: color 0.3s;
+color: var(--branco);
+font-size: 20px;
+transition: color 0.3s;
 }
 
 .rodape-redes a:hover {
-    color: var(--dourado); /* Hover dourado */
+color: var(--dourado);
 }
 
 .rodape-creditos {
-    margin-top: 20px;
-    font-size: 14px;
-    color: var(--cinza-claro); /* Texto cinza claro */
+margin-top: 20px;
+font-size: 14px;
+color: var(--cinza-claro);
 }
 
 .rodape-creditos a {
-    color: var(--dourado); /* Link dourado */
-    text-decoration: none;
-    transition: color 0.3s;
+color: var(--dourado);
+text-decoration: none;
+transition: color 0.3s;
 }
 
 .rodape-creditos a:hover {
-    color: var(--dourado-suave); /* Hover dourado suave */
+color: var(--dourado-suave);
 }
 
-/* Layout para telas maiores (tablet e desktop) */
 @media (min-width: 768px) {
-    .rodape-container {
-        flex-direction: row; /* Linha para desktop */
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .rodape-links ul {
-        gap: 20px; /* Aumenta o espaço entre os links */
-    }
+.rodape-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.rodape-links ul {
+    gap: 20px;
+}
+
 
 /* Barra Lateral de RedesSociais */
 .social-bar {
@@ -876,4 +752,5 @@ span {
 
 .toggle-bar:hover {
     color: var(--cor-botoes);
+}
 }
