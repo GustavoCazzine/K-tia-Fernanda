@@ -113,8 +113,15 @@ document.querySelectorAll('.filter-button').forEach(button => {
 });
 
 
-// Flip dos cards de serviços
-function flipCard(cardId) {
-    const card = document.getElementById(cardId);
-    card.classList.toggle('flipped');
-}
+document.querySelectorAll('.servico-card').forEach(card => {
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+});
+
+// Adicionando um efeito de carregamento suave ao mapa
+window.addEventListener('load', () => {
+    const mapContainer = document.querySelector('.map-container iframe');
+    mapContainer.style.opacity = '1';
+    mapContainer.style.transition = 'opacity 1s ease';
+  });
