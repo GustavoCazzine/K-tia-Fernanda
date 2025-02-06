@@ -1,3 +1,4 @@
+
 // Seleciona o botão do menu e o menu
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
@@ -89,3 +90,31 @@ document.addEventListener("scroll", debounce(() => {
 }, 100));
 
 window.addEventListener("resize", debounce(detectBackgroundColor, 100));
+
+
+
+// Filtro de Categorias
+document.querySelectorAll('.filter-button').forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove a classe 'active' de todos os botões
+        document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        // Adiciona a classe 'active' ao botão clicado
+        button.classList.add('active');
+
+        const filter = button.getAttribute('data-filter');
+        document.querySelectorAll('.portfolio-item').forEach(item => {
+            if (filter === 'all' || item.classList.contains(filter)) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    });
+});
+
+
+// Flip dos cards de serviços
+function flipCard(cardId) {
+    const card = document.getElementById(cardId);
+    card.classList.toggle('flipped');
+}
