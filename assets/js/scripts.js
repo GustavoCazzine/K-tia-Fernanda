@@ -8,6 +8,10 @@ menuToggle.addEventListener('click', () => {
     menu.classList.toggle('active'); // Alterna a classe 'active' no menu
 });
 
+// Animação X no icone do menu
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('ativo'); // Adiciona ou remove a classe "ativo"
+});
 
 // Inicialização do Swiper
 const swiper = new Swiper('.mySwiper', {
@@ -105,23 +109,55 @@ document.querySelectorAll('.filter-button').forEach(button => {
         document.querySelectorAll('.portfolio-item').forEach(item => {
             if (filter === 'all' || item.classList.contains(filter)) {
                 item.style.display = 'block';
+                item.classList.add('fade-in'); // Adiciona animação de fade-in
             } else {
                 item.style.display = 'none';
+                item.classList.remove('fade-in');
             }
         });
     });
 });
 
+// Animação de fade-in
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+portfolioItems.forEach(item => {
+    item.addEventListener('transitionend', () => {
+        if (item.classList.contains('fade-in')) {
+            item.style.opacity = '1';
+        }
+    });
+});
 
-document.querySelectorAll('.servico-card').forEach(card => {
+
+// Virada dos cards
+const cards = document.querySelectorAll('.servico-card');
+
+cards.forEach(card => {
     card.addEventListener('click', () => {
         card.classList.toggle('flipped');
     });
 });
+
+
 
 // Adicionando um efeito de carregamento suave ao mapa
 window.addEventListener('load', () => {
     const mapContainer = document.querySelector('.map-container iframe');
     mapContainer.style.opacity = '1';
     mapContainer.style.transition = 'opacity 1s ease';
-  });
+});
+
+
+// Efeito de digitação no título
+const text = "Transforme seu Olhar";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        document.getElementById("typing-effect").textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 100); // Velocidade da digitação
+    }
+}
+
+typeEffect();

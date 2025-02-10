@@ -8,48 +8,44 @@
 
     <link rel="stylesheet" href="assets/css/swiper-bundle.css">
     <link rel="stylesheet" href="assets/js/swiper-bundle.js">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <main>
         <!-- Cabeçalho -->
         <header class="cabecalho">
             <div class="logo">
-                <img src="assets/img/logo/1.png" alt="Icone logo">
-                <img src="assets/img/logo/2.png" alt="Inone Logo">
+                <img src="assets/img/logo/1.png" alt="Icone logo" class="logo-img">
             </div>
-            <!-- Botão do Menu Hambúrguer -->
             <button class="menu-toggle" aria-label="Abrir menu">
                 <span class="hamburguer"></span>
             </button>
-            <!-- Menu de Navegação -->
             <nav class="menu">
                 <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#portfolio">Portfólio</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre">Quem Somos</a></li>
+                    <li><a href="#servicos">Nossas Soluções</a></li>
                     <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#contato">Fale Conosco</a></li>
                 </ul>
+                <a href="#" class="botao-cta">Descubra sua melhor versão</a>
             </nav>
-            <a href="#contato" class="botao-cta">Agendar Horário</a>
         </header>
         <!-- Seção Hero -->
         <section class="hero" id="inicio">
             <div class="hero-conteudo">
-                <h2><span>Transforme seu Olhar</span> com Alongamento de Cílios e Design de Sobrancelhas!</h2>
+                <h2><span id="typing-effect"></span> com Alongamento de Cílios e Design de Sobrancelhas!</h2>
                 <p>Com Kátia Fernanda – Especialista em Beleza Natural e Design de Precisão</p>
                 <a href="#contato" class="botao-hero">
-                    <i class="fas fa-eye"></i> Descubra Seu Melhor Visual
+                    <i class="fas fa-eye animated-eye"></i> Descubra Seu Melhor Visual
                 </a>
             </div>
         </section>
         <!-- Seção Sobre Mim -->
         <section class="sobre-mim" id="sobre">
             <div class="sobre-conteudo">
-                <h2>Minha história, sua<span> beleza!</span> </h2>
+                <h2>Minha história, sua<span> beleza!</span></h2>
                 <p>
                     Me chamo Kátia Fernanda, sou especialista em design de cílios e sobrancelhas há mais de 8 anos. 
                     Meu trabalho é focado em realçar a beleza natural de cada cliente, com técnicas personalizadas 
@@ -82,7 +78,7 @@
             <h2>Descubra o que fazemos <span>por você!</span></h2>
             <div class="servicos-container">
                 <!-- Card 1: Design de Sobrancelhas -->
-                <div class="servico-card" id="card1">
+                <div class="servico-card">
                     <div class="card-inner">
                         <div class="card-front">
                             <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Design de Sobrancelhas">
@@ -92,7 +88,7 @@
                                 e micropigmentação para criar sobrancelhas que realçam sua expressão e duram semanas. 
                                 <strong>Marque já sua transformação!</strong>
                             </p>
-                            <span class="botao-servico">Saiba Mais</span>
+                            <button class="botao-servico">Saiba Mais</button>
                         </div>
                         <div class="card-back">
                             <h3>Por que escolher nosso Design de Sobrancelhas?</h3>
@@ -105,26 +101,25 @@
                         </div>
                     </div>
                 </div>
-                <!-- Repita para os outros cards -->
-                <!-- Card 2: Design de Sobrancelhas -->
-                <div class="servico-card" id="card1">
+                <!-- Card 2: Alongamento de Cílios -->
+                <div class="servico-card">
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Design de Sobrancelhas">
-                            <h3><i class="fas fa-eye"></i> Design de Sobrancelhas</h3>
+                            <img src="assets/img/Feedbacks/Cliente02.jpg" alt="Alongamento de Cílios">
+                            <h3><i class="fas fa-eye"></i> Alongamento de Cílios</h3>
                             <p>
-                                Destaque sua beleza natural com um design perfeito! Usamos técnicas de henna 
-                                e micropigmentação para criar sobrancelhas que realçam sua expressão e duram semanas. 
-                                <strong>Marque já sua transformação!</strong>
+                                Cílios mais longos e volumosos em poucas horas! Usamos fios de alta qualidade 
+                                e técnicas precisas para um resultado natural e confortável. 
+                                <strong>Agende seu horário!</strong>
                             </p>
-                            <span class="botao-servico">Saiba Mais</span>
+                            <button class="botao-servico">Saiba Mais</button>
                         </div>
                         <div class="card-back">
-                            <h3>Por que escolher nosso Design de Sobrancelhas?</h3>
+                            <h3>Por que escolher nosso Alongamento de Cílios?</h3>
                             <ul>
-                                <li>👑 <strong>Personalizado</strong>: Adaptado ao formato do seu rosto.</li>
-                                <li>💎 <strong>Natural e duradouro</strong>: Resultados que impressionam.</li>
-                                <li>⏱️ <strong>Rápido e prático</strong>: Apenas 1 hora para um novo visual.</li>
+                                <li>👑 <strong>Personalizado</strong>: Adaptado ao formato dos seus olhos.</li>
+                                <li>💎 <strong>Confortável e seguro</strong>: Fios leves e hipoalergênicos.</li>
+                                <li>⏱️ <strong>Durabilidade</strong>: Até 4 semanas com manutenção.</li>
                             </ul>
                             <a href="#" class="link-contato">Quero agendar agora!</a>
                         </div>
@@ -132,6 +127,7 @@
                 </div>
             </div>
         </section>
+        
         <!-- Seção Portfólio -->
         <section class="portfolio" id="portfolio">
             <h2>Nosso <span>Portfólio</span></h2>
@@ -204,7 +200,7 @@
                             </div>
                         </div>
                     </div>
-            
+        
                     <!-- Depoimento 2 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -219,7 +215,7 @@
                             </div>
                         </div>
                     </div>
-            
+        
                     <!-- Depoimento 3 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -234,7 +230,7 @@
                             </div>
                         </div>
                     </div>
-            
+        
                     <!-- Depoimento 4 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -249,7 +245,7 @@
                             </div>
                         </div>
                     </div>
-            
+        
                     <!-- Depoimento 5 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -264,7 +260,7 @@
                             </div>
                         </div>
                     </div>
-            
+        
                     <!-- Depoimento 6 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -289,15 +285,16 @@
             <div class="container">
                 <h2 class="section-title"><span>Venha nos Visitar!</span> É fácil chegar até a gente!</h2>
                 <p class="section-description">
-                    Cuide de você no nosso salão! Conforto, praticidade e um momento só seu. Sua beleza, nossa prioridade!                </p>
+                    Cuide de você no nosso salão! Conforto, praticidade e um momento só seu. Sua beleza, nossa prioridade!
+                </p>
                 <div class="map-container">
                     <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.075426745292!2d-46.65342658440709!3d-23.565734367638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1633023226789!5m2!1spt-BR!2sbr"
-                    width="100%"
-                    height="400"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.075426745292!2d-46.65342658440709!3d-23.565734367638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1633023226789!5m2!1spt-BR!2sbr"
+                        width="100%"
+                        height="400"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
                     ></iframe>
                 </div>
                 <div class="location-info">
@@ -309,7 +306,7 @@
 
         <!-- Rodapé -->
         <!-- Seção Signup com Contatos -->
-        <section class="signup-section">
+        <section class="signup-section" id="contato">
             <div class="signup-content">
                 <h2>Transforme Sua Beleza Hoje!</h2>
                 <p>Não perca a chance de realçar sua beleza com os melhores tratamentos. Agende agora e receba um <strong>desconto exclusivo</strong> na sua primeira visita!</p>
@@ -346,12 +343,12 @@
                 <p>Criado por <a href="https://seusite.com" target="_blank" rel="noopener noreferrer">Gustavo Cazzine</a></p>
             </div>
         </footer>
-
     </main>
 
     
 
     <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/assets/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
