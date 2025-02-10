@@ -30,6 +30,7 @@ const swiper = new Swiper('.mySwiper', {
 });
 
 
+// Função debounce para melhorar a performance
 function debounce(func, wait) {
     let timeout;
     return function (...args) {
@@ -42,59 +43,43 @@ function debounce(func, wait) {
 function detectBackgroundColor() {
     const socialBar = document.getElementById("socialBar");
     const rect = socialBar.getBoundingClientRect();
-    
-    // Verifica vários pontos ao longo da barra
-    const pointsToCheck = [
-        { x: rect.left, y: rect.top }, // Canto superior esquerdo
-        { x: rect.left + rect.width / 2, y: rect.top }, // Meio superior
-        { x: rect.left + rect.width, y: rect.top }, // Canto superior direito
-        { x: rect.left, y: rect.top + rect.height / 2 }, // Meio esquerdo
-        { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 }, // Centro
-        { x: rect.left + rect.width, y: rect.top + rect.height / 2 }, // Meio direito
-        { x: rect.left, y: rect.top + rect.height }, // Canto inferior esquerdo
-        { x: rect.left + rect.width / 2, y: rect.top + rect.height }, // Meio inferior
-        { x: rect.left + rect.width, y: rect.top + rect.height } // Canto inferior direito
-    ];
 
-    let isOverBlack = false;
+    // Verifica apenas o ponto central da barra lateral
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
 
-    for (const point of pointsToCheck) {
-        const elements = document.elementsFromPoint(point.x, point.y);
-        
-        for (const element of elements) {
-            const backgroundColor = window.getComputedStyle(element).backgroundColor;
-            
-            if (backgroundColor === "rgb(0, 0, 0)") { // Verifica se o fundo é preto
-                isOverBlack = true;
-                break;
-            }
-        }
+    const elementAtCenter = document.elementFromPoint(centerX, centerY);
+    if (!elementAtCenter) return;
 
-        if (isOverBlack) break;
-    }
+    const backgroundColor = window.getComputedStyle(elementAtCenter).backgroundColor;
 
-    if (isOverBlack) {
+    // Verifica se o fundo é preto (ou próximo de preto)
+    if (backgroundColor === "rgb(0, 0, 0)" || backgroundColor === "#000000") {
         socialBar.style.background = "white"; // Troca a cor de fundo da barra lateral
         socialBar.style.color = "black"; // Troca a cor do texto
     } else {
-        socialBar.style.background = "rgba(255, 255, 255, 0)"; // Restaura a cor original
+        socialBar.style.background = "rgba(255, 255, 255, 0.8)"; // Restaura a cor original
         socialBar.style.color = ""; // Restaura a cor original do texto
     }
 }
 
-document.addEventListener("scroll", debounce(() => {
-    const socialBar = document.getElementById("socialBar");
+// Adiciona o evento de scroll
+document.addEventListener(
+    "scroll",
+    debounce(() => {
+        const socialBar = document.getElementById("socialBar");
 
-    if (window.scrollY > 100) {
-        socialBar.classList.add("visible");
-        detectBackgroundColor();
-    } else {
-        socialBar.classList.remove("visible");
-    }
-}, 100));
+        if (window.scrollY > 100) {
+            socialBar.classList.add("visible");
+            detectBackgroundColor();
+        } else {
+            socialBar.classList.remove("visible");
+        }
+    }, 100)
+);
 
+// Adiciona o evento de resize
 window.addEventListener("resize", debounce(detectBackgroundColor, 100));
-
 
 
 // Filtro de Categorias
@@ -161,3 +146,12 @@ function typeEffect() {
 }
 
 typeEffect();
+
+
+// Barra Vertical RedesSociais
+const socialMenu = document.querySelector(".social-menu");
+const socialToggle = document.querySelector(".social-toggle");
+
+socialToggle.addEventListener("click", () => {
+    socialMenu.classList.toggle("active");
+});

@@ -1166,7 +1166,12 @@ h2 {
 
 
 
-/* Barra Lateral de RedesSociais */
+:root {
+    --cor-titulo: #000; /* Cor do texto */
+    --cor-botoes: #FFD700; /* Cor de destaque (dourado) */
+}
+
+/* Barra Lateral de Redes Sociais */
 .social-bar {
     position: fixed;
     left: -60px; /* Começa fora da tela */
@@ -1175,13 +1180,13 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 255, 255, 0);
-    backdrop-filter: blur(1px);
+    background: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque */
     padding: 10px 5px;
     border-radius: 0 8px 8px 0;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     z-index: 9999;
-    transition: left 0.4s ease-in-out, background 0.4s ease-in-out, color 0.4s ease-in-out; /* Transições suaves */
+    transition: left 0.4s ease-in-out; /* Transição suave */
 }
 
 .social-bar.visible {
@@ -1190,6 +1195,11 @@ h2 {
 
 .social-icon {
     margin: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
 }
 
 .social-icon img {
@@ -1204,27 +1214,11 @@ h2 {
     font-size: 14px;
     color: var(--cor-titulo);
     font-weight: bold;
-    cursor: pointer;
-}
-
-.newsletter:hover {
-    color: var(--cor-botoes);
-}
-
-#socialBar {
-    transition: background 0.4s ease-in-out, color 0.4s ease-in-out; /* Transições suaves para fundo e texto */
-}
-
-.toggle-bar {
-    margin-top: 20px;
-    cursor: pointer;
-    font-size: 20px;
-    color: var(--cor-titulo);
     transition: color 0.3s ease;
 }
 
-.toggle-bar:hover {
-    color: var(--cor-botoes);
+.newsletter:hover {
+    color: var(--cor-botoes); /* Cor de destaque ao passar o mouse */
 }
 
 /* Seção GooleMaps */
@@ -1317,4 +1311,88 @@ h2 {
     .location-info p {
         font-size: 0.9rem;
     }
+}
+
+
+.social-menu {
+    position: fixed; /* Fixa o menu na tela */
+    bottom: 20px; /* Distância do fundo da tela */
+    right: 20px; /* Distância da direita da tela */
+    display: flex;
+    flex-direction: column-reverse; /* Inverte a ordem dos itens (botão embaixo) */
+    align-items: center;
+    z-index: 1000; /* Garante que o menu fique sobre outros elementos */
+}
+
+.social-toggle {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 1.25s;
+    z-index: 5;
+}
+
+.social-menu.active .social-toggle {
+transform: rotate(360deg);
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15),
+    0 0 0 2px #333,
+    0 0 0 8px #fff;
+}
+
+.social-list {
+    list-style: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transform: translateY(100%); /* Inicia os itens escondidos abaixo */
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    margin-bottom: 10px; /* Espaço entre o botão e os ícones */
+}
+
+.social-menu.active .social-list {
+    transform: translateY(0); /* Mostra os itens */
+    opacity: 1;
+}
+
+.social-list li {
+    list-style: none;
+    transition: 0.5s;
+    scale: 0;
+    transition-delay: calc(0.05s * var(--i));
+}
+
+.social-menu.active .social-list li {
+    scale: 1;
+}
+
+.social-list li a {
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background-color: #FFF;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.75rem;
+    color: var(--clr);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+}
+
+.social-list li:hover a {
+    font-size: 2.5rem;
+    box-shadow: 0 0 0 2px var(--clr), 0 0 0 6px #fff;
 }
