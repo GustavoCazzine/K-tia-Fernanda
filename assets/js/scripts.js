@@ -160,28 +160,26 @@ socialToggle.addEventListener("click", () => {
 
 // FORMULÁRIO DE AGENDAMEWNTOS ONLINE
 
-// FORMULÁRIO DE AGENDAMENTOS ONLINE
 document.getElementById('form-agendamento').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Impede o comportamento padrão do formulário
+    event.preventDefault();
 
-    // Coleta os dados do formulário
     const data = document.getElementById('data').value;
     const hora = document.getElementById('hora').value;
-    const duracao = parseInt(document.getElementById('duracao').value); // em minutos
+    const duracao = parseInt(document.getElementById('duracao').value);
     const titulo = document.getElementById('titulo').value;
 
-    // Valida os campos
+    console.log("Dados do formulário:", { data, hora, duracao, titulo });
+
     if (!data || !hora || !titulo || duracao <= 0) {
         document.getElementById('mensagem').innerText = "Preencha todos os campos corretamente!";
         return;
     }
 
-    // Formata a data/hora para o Google Calendar (ISO 8601)
     const dataHoraInicio = new Date(`${data}T${hora}:00`);
     const dataHoraFim = new Date(dataHoraInicio.getTime() + duracao * 60000);
 
     try {
-        // Envia os dados para o servidor
+        console.log("Enviando requisição para o servidor...");
         const response = await fetch('http://3.86.192.199:3000/agendar', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -192,9 +190,8 @@ document.getElementById('form-agendamento').addEventListener('submit', async fun
             })
         });
 
-        const resultado = await response.json();
+        console.log("Resposta do servidor:", response);
 
-        // Exibe a mensagem de sucesso ou erro
         if (response.ok) {
             document.getElementById('mensagem').innerText = "✅ Evento agendado com sucesso!";
         } else {
@@ -202,5 +199,6 @@ document.getElementById('form-agendamento').addEventListener('submit', async fun
         }
     } catch (error) {
         console.error("Erro ao enviar o formulário:", error);
-        document.getElementById('mensagem').innerText = "❌ Erro ao agendar evento. Tente novamente.";}
+        document.getElementById('mensagem').innerText = "❌ Erro ao agendar evento. Tente novamente.";
+    }
 });
