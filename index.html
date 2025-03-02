@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kátia Fernanda • Cílios & Sobrancelhas</title>
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 
     <link rel="stylesheet" href="assets/css/swiper-bundle.css">
     <link rel="stylesheet" href="assets/js/swiper-bundle.js">
@@ -280,6 +280,30 @@
                 <div class="swiper-pagination"></div>
             </div>
         </section>
+
+        <!-- Seção Agendamento online -->
+        <section class="agendamento" id="secao-agendamento">
+            <h2>Agendar Evento no Google Calendar</h2>
+            <form id="form-agendamento">
+                <label for="data">Data:</label>
+                <input type="date" id="data" required>
+        
+                <label for="hora">Hora de Início:</label>
+                <input type="time" id="hora" required>
+        
+                <label for="duracao">Duração (minutos):</label>
+                <input type="number" id="duracao" min="15" required>
+        
+                <label for="titulo">Título do Evento:</label>
+                <input type="text" id="titulo" required>
+        
+                <button type="submit">Agendar</button>
+            </form>
+        
+            <p id="mensagem"></p>
+        </section>
+
+
         <!-- SEção Localização -->
         <section class="location-section">
             <div class="container">
@@ -384,7 +408,7 @@
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="/assets/js/scripts.js"></script>
+    <script src="/Kátia-Fernanda/assets/js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>

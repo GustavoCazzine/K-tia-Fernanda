@@ -1396,3 +1396,85 @@ box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15),
     font-size: 2.5rem;
     box-shadow: 0 0 0 2px var(--clr), 0 0 0 6px #fff;
 }
+
+
+/* FORMULARIO AGENDAMENTOS ONLINE */
+
+/* Seção de Agendamento */
+#secao-agendamento {
+    background: var(--branco);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: var(--cinza-escuro);
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos do Formulário */
+#form-agendamento label {
+    display: block;
+    font-weight: bold;
+    color: var(--cinza-escuro);
+    margin-bottom: 0.5rem;
+}
+
+#form-agendamento input,
+#form-agendamento button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+#form-agendamento input:focus {
+    border-color: var(--dourado-suave);
+    outline: none;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+}
+
+/* Botão de Agendar */
+#form-agendamento button {
+    background: var(--dourado);
+    color: var(--branco);
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+#form-agendamento button:hover {
+    background: var(--dourado-suave);
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensagem de Feedback */
+#mensagem {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#mensagem.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#mensagem.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
