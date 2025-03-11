@@ -3,131 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kátia Fernanda • Cílios & Sobrancelhas</title>
+    <title>Kátia Fernanda • Cílios & Sobrancelhas em Piracicaba</title>
+    <meta name="description" content="Descubra o salão de Kátia Fernanda em Piracicaba! Especialista em alongamento de cílios e design de sobrancelhas. Agende agora e transforme sua beleza!">
     <link rel="stylesheet" href="assets/css/styles.css">
-
     <link rel="stylesheet" href="assets/css/swiper-bundle.css">
-    <link rel="stylesheet" href="assets/js/swiper-bundle.js">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <main>
-        <!-- Cabeçalho -->
+        <!-- Seção cabecalho -->
         <header class="cabecalho">
             <div class="logo">
-                <img src="assets/img/logo/1.png" alt="Icone logo" class="logo-img">
+                <img src="assets/img/logo/1-removebg-preview.png" alt="Logo Kátia Fernanda Cílios & Sobrancelhas" class="logo-img">
             </div>
             <button class="menu-toggle" aria-label="Abrir menu">
                 <span class="hamburguer"></span>
             </button>
             <nav class="menu">
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre">Quem Somos</a></li>
-                    <li><a href="#servicos">Nossas Soluções</a></li>
-                    <li><a href="#depoimentos">Depoimentos</a></li>
-                    <li><a href="#contato">Fale Conosco</a></li>
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Início</a></li>
+                    <li><a href="#sobre"><i class="fas fa-user"></i> Quem Somos</a></li>
+                    <li class="dropdown">
+                        <a href="#servicos" class="dropdown-toggle"><i class="fas fa-cogs"></i> Serviços <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="#DesignerSobrancelha">Design de Sobrancelhas</a></li>
+                            <li><a href="#AlongamentoCilios">Extensão de Cílios</a></li>
+                            <li><a href="#SPAFacial">SPA Facial</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#depoimentos"><i class="fas fa-comments"></i> Depoimentos</a></li>
+                    <li><a href="#contato"><i class="fas fa-calendar-alt"></i> Agendamento</a></li>
+                    <li><a href="https://instagram.com/seuinstagram" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://wa.me/seunumerodewhatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
                 </ul>
-                <a href="#" class="botao-cta">Descubra sua melhor versão</a>
+                <a href="#contato" class="botao-cta"><i class="fas fa-calendar-alt"></i> Agende Agora</a>
             </nav>
         </header>
+
         <!-- Seção Hero -->
         <section class="hero" id="inicio">
             <div class="hero-conteudo">
-                <h2><span id="typing-effect"></span> com Alongamento de Cílios e Design de Sobrancelhas!</h2>
-                <p>Com Kátia Fernanda – Especialista em Beleza Natural e Design de Precisão</p>
+                <h1>Descubra a Arte dos Cílios e Sobrancelhas Perfeitas em Piracicaba!</h1>
+                <p>Com Kátia Fernanda - Especialista em Beleza Natural e Design de Precisão</p>
                 <a href="#contato" class="botao-hero">
-                    <i class="fas fa-eye animated-eye"></i> Descubra Seu Melhor Visual
+                    <i class="fas fa-eye animated-eye"></i> Agende Sua Transformação
                 </a>
+                <div class="scroll-indicator">
+                    <span>Role pcara descobrir mais <i class="fas fa-chevron-down"></i></span>
+                </div>
             </div>
         </section>
+
         <!-- Seção Sobre Mim -->
         <section class="sobre-mim" id="sobre">
             <div class="sobre-conteudo">
-                <h2>Minha história, sua<span> beleza!</span></h2>
+                <h2>Minha História, <span>Sua Beleza!</span></h2>
                 <p>
                     Me chamo Kátia Fernanda, sou especialista em design de cílios e sobrancelhas há mais de 8 anos. 
                     Meu trabalho é focado em realçar a beleza natural de cada cliente, com técnicas personalizadas 
-                    e produtos de alta qualidade.
+                    e produtos de alta qualidade. Aqui, você encontra um ambiente acolhedor e resultados que impressionam!
                 </p>
-                <ul class="lista-destaques">
-                    <li>
-                        <i class="fas fa-certificate"></i>
-                        <span>Certificação internacional em extensão de cílios</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-allergies"></i>
-                        <span>Uso exclusivo de produtos hipoalergênicos</span>
-                    </li>
-                    <li>
-                        <i class="fas fa-heart"></i>
-                        <span>Ambiente acolhedor e atendimento personalizado</span>
-                    </li>
-                </ul>
-                <a href="#contato" class="botao-sobre">
-                    <i class="fas fa-calendar-check"></i> Agendar Horário
-                </a>
+
+                <!-- Timeline Interativa -->
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>2015</h3>
+                            <p>Início da carreira como designer de sobrancelhas.</p>
+                            <div class="timeline-details">
+                                <p>Detalhes adicionais sobre 2015...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>2018</h3>
+                            <p>Certificação internacional em extensão de cílios.</p>
+                            <div class="timeline-details">
+                                <p>Detalhes adicionais sobre 2018...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>2021</h3>
+                            <p>Abertura do próprio estúdio de beleza.</p>
+                            <div class="timeline-details">
+                                <p>Detalhes adicionais sobre 2021...</p>
+                            </div>
+                        </div>
+                    </div>
             </div>
+
+            <!-- Imagem -->
             <div class="sobre-imagem">
-                <img src="/assets/img/Feedbacks/Cliente01.jpg" alt="Kátia Fernanda">
+                <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Kátia Fernanda - Especialista em Cílios e Sobrancelhas" loading="lazy">
             </div>
         </section>
+
         <!-- Seção Serviços -->
         <section class="servicos" id="servicos">
-            <h2>Descubra o que fazemos <span>por você!</span></h2>
+            <h2>Nossos Serviços Exclusivos</h2>
             <div class="servicos-container">
                 <!-- Card 1: Design de Sobrancelhas -->
-                <div class="servico-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Design de Sobrancelhas">
-                            <h3><i class="fas fa-eye"></i> Design de Sobrancelhas</h3>
-                            <p>
-                                Destaque sua beleza natural com um design perfeito! Usamos técnicas de henna 
-                                e micropigmentação para criar sobrancelhas que realçam sua expressão e duram semanas. 
-                                <strong>Marque já sua transformação!</strong>
-                            </p>
-                            <button class="botao-servico">Saiba Mais</button>
-                        </div>
-                        <div class="card-back">
-                            <h3>Por que escolher nosso Design de Sobrancelhas?</h3>
-                            <ul>
-                                <li>👑 <strong>Personalizado</strong>: Adaptado ao formato do seu rosto.</li>
-                                <li>💎 <strong>Natural e duradouro</strong>: Resultados que impressionam.</li>
-                                <li>⏱️ <strong>Rápido e prático</strong>: Apenas 1 hora para um novo visual.</li>
-                            </ul>
-                            <a href="#" class="link-contato">Quero agendar agora!</a>
-                        </div>
+                <div class="servico-card" id="DesignerSobrancelha">
+                    <div class="card-content">
+                        <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Design de Sobrancelhas" loading="lazy">
+                        <h3><i class="fas fa-eye"></i> Design de Sobrancelhas</h3>
+                        <p>
+                            Destaque sua beleza natural com um design perfeito! Usamos técnicas de henna 
+                            e micropigmentação para criar sobrancelhas que realçam sua expressão e duram semanas. 
+                        </p>
+                        <button class="botao-servico">Saiba Mais</button>
+                    </div>
+                    <div class="card-details">
+                        <h3>Por que escolher nosso Design de Sobrancelhas?</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-crown"></i>
+                                <strong>Personalizado</strong>: Adaptado ao formato do seu rosto.
+                            </li>
+                            <li>
+                                <i class="fas fa-gem"></i>
+                                <strong>Natural e duradouro</strong>: Resultados que impressionam.
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <strong>Rápido e prático</strong>: Apenas 1 hora para um novo visual.
+                            </li>
+                        </ul>
+                        <a href="#contato" class="link-contato">Quero agendar agora!</a>
                     </div>
                 </div>
+
                 <!-- Card 2: Alongamento de Cílios -->
-                <div class="servico-card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <img src="assets/img/Feedbacks/Cliente02.jpg" alt="Alongamento de Cílios">
-                            <h3><i class="fas fa-eye"></i> Alongamento de Cílios</h3>
-                            <p>
-                                Cílios mais longos e volumosos em poucas horas! Usamos fios de alta qualidade 
-                                e técnicas precisas para um resultado natural e confortável. 
-                                <strong>Agende seu horário!</strong>
-                            </p>
-                            <button class="botao-servico">Saiba Mais</button>
-                        </div>
-                        <div class="card-back">
-                            <h3>Por que escolher nosso Alongamento de Cílios?</h3>
-                            <ul>
-                                <li>👑 <strong>Personalizado</strong>: Adaptado ao formato dos seus olhos.</li>
-                                <li>💎 <strong>Confortável e seguro</strong>: Fios leves e hipoalergênicos.</li>
-                                <li>⏱️ <strong>Durabilidade</strong>: Até 4 semanas com manutenção.</li>
-                            </ul>
-                            <a href="#" class="link-contato">Quero agendar agora!</a>
-                        </div>
+                <div class="servico-card" id="AlongamentoCilios">
+                    <div class="card-content">
+                        <img src="assets/img/Feedbacks/Cliente02.jpg" alt="Alongamento de Cílios" loading="lazy">
+                        <h3><i class="fas fa-eye"></i> Alongamento de Cílios</h3>
+                        <p>
+                            Cílios mais longos e volumosos em poucas horas! Usamos fios de alta qualidade 
+                            e técnicas precisas para um resultado natural e confortável. 
+                        </p>
+                        <button class="botao-servico">Saiba Mais</button>
+                    </div>
+                    <div class="card-details">
+                        <h3>Por que escolher nosso Alongamento de Cílios?</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-crown"></i>
+                                <strong>Personalizado</strong>: Adaptado ao formato dos seus olhos.
+                            </li>
+                            <li>
+                                <i class="fas fa-gem"></i>
+                                <strong>Confortável e seguro</strong>: Fios leves e hipoalergênicos.
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <strong>Durabilidade</strong>: Até 4 semanas com manutenção.
+                            </li>
+                        </ul>
+                        <a href="#contato" class="link-contato">Quero agendar agora!</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: SPA Facial -->
+                <div class="servico-card" id="SPAFacial">
+                    <div class="card-content">
+                        <img src="assets/img/Feedbacks/Cliente02.jpg" alt="SPA Facial" loading="lazy">
+                        <h3><i class="fas fa-spa"></i> SPA Facial</h3>
+                        <p>
+                            Revitalize sua pele com nosso SPA Facial completo! Utilizamos produtos de alta qualidade 
+                            e técnicas especializadas para uma experiência relaxante e resultados visíveis. 
+                        </p>
+                        <button class="botao-servico">Saiba Mais</button>
+                    </div>
+                    <div class="card-details">
+                        <h3>Por que escolher nosso SPA Facial?</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-crown"></i>
+                                <strong>Personalizado</strong>: Tratamentos adaptados às necessidades da sua pele.
+                            </li>
+                            <li>
+                                <i class="fas fa-gem"></i>
+                                <strong>Relaxante e seguro</strong>: Produtos naturais e hipoalergênicos.
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <strong>Resultados duradouros</strong>: Pele hidratada e rejuvenescida por semanas.
+                            </li>
+                        </ul>
+                        <a href="#contato" class="link-contato">Quero agendar agora!</a>
                     </div>
                 </div>
             </div>
         </section>
-        
+
         <!-- Seção Portfólio -->
         <section class="portfolio" id="portfolio">
             <h2>Nosso <span>Portfólio</span></h2>
@@ -140,37 +216,37 @@
                 <!-- Item 1 -->
                 <div class="portfolio-item sobrancelhas">
                     <a href="assets/img/Feedbacks/Cliente01.jpg" data-lightbox="portfolio" data-title="Design de Sobrancelhas com Henna">
-                        <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Design de Sobrancelhas">
+                        <img src="assets/img/Feedbacks/Cliente01.jpg" alt="Design de Sobrancelhas" loading="lazy">
                     </a>
                     <div class="portfolio-overlay">
                         <p>Design de Sobrancelhas com Henna</p>
                     </div>
                 </div>
-        
+
                 <!-- Item 2 -->
                 <div class="portfolio-item cilios">
                     <a href="assets/img/Feedbacks/Cliente02.jpg" data-lightbox="portfolio" data-title="Extensão de Cílios Fio a Fio">
-                        <img src="assets/img/Feedbacks/Cliente02.jpg" alt="Extensão de Cílios">
+                        <img src="assets/img/Feedbacks/Cliente02.jpg" alt="Extensão de Cílios" loading="lazy">
                     </a>
                     <div class="portfolio-overlay">
                         <p>Extensão de Cílios Fio a Fio</p>
                     </div>
                 </div>
-        
+
                 <!-- Item 3 -->
                 <div class="portfolio-item cilios">
                     <a href="assets/img/Feedbacks/Cliente03.jpg" data-lightbox="portfolio" data-title="Lash Lifting com Curvatura Perfeita">
-                        <img src="assets/img/Feedbacks/Cliente03.jpg" alt="Lash Lifting">
+                        <img src="assets/img/Feedbacks/Cliente03.jpg" alt="Lash Lifting" loading="lazy">
                     </a>
                     <div class="portfolio-overlay">
                         <p>Lash Lifting com Curvatura Perfeita</p>
                     </div>
                 </div>
-        
+
                 <!-- Item 4 -->
                 <div class="portfolio-item sobrancelhas">
                     <a href="assets/img/Feedbacks/Cliente04.jpg" data-lightbox="portfolio" data-title="Design de Sobrancelhas com Microblading">
-                        <img src="assets/img/Feedbacks/Cliente04.jpg" alt="Design de Sobrancelhas">
+                        <img src="assets/img/Feedbacks/Cliente04.jpg" alt="Design de Sobrancelhas" loading="lazy">
                     </a>
                     <div class="portfolio-overlay">
                         <p>Design de Sobrancelhas com Microblading</p>
@@ -181,6 +257,8 @@
                 <i class="fas fa-images"></i> Ver Mais Trabalhos
             </a>
         </section>
+
+
         <!-- Seção Depoimentos -->
         <section class="secao-feedbacks">
             <div class="swiper mySwiper" id="depoimentos">
@@ -200,7 +278,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Depoimento 2 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -215,7 +293,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Depoimento 3 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -230,7 +308,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Depoimento 4 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -245,7 +323,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Depoimento 5 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -260,7 +338,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- Depoimento 6 -->
                     <div class="swiper-slide">
                         <div class="feedback-container">
@@ -281,64 +359,51 @@
             </div>
         </section>
 
-        <!-- Seção Agendamento online -->
-        <section class="agendamento" id="secao-agendamento">
-            <h2>Agendar Evento no Google Calendar</h2>
+        <!-- Seção Agendamento -->
+        <section class="agendamento" id="contato">
+            <h2>Agende Seu Horário Agora!</h2>
+            <p>Transforme sua beleza com a Kátia Fernanda. Preencha o formulário abaixo e reserve seu horário:</p>
             <form id="form-agendamento">
-                <label for="data">Data:</label>
-                <input type="date" id="data" required>
-
-                <label for="hora">Hora de Início:</label>
-                <input type="time" id="hora" required>
-
-                <label for="duracao">Duração (minutos):</label>
-                <input type="number" id="duracao" min="15" required>
-
-                <label for="titulo">Título do Evento:</label>
-                <input type="text" id="titulo" required>
-
-                <button type="submit">Agendar</button>
-            </form>
-
-            <p id="mensagem"></p>
-        </section>
-
-        <!-- SEção Localização -->
-        <section class="location-section">
-            <div class="container">
-                <h2 class="section-title"><span>Venha nos Visitar!</span> É fácil chegar até a gente!</h2>
-                <p class="section-description">
-                    Cuide de você no nosso salão! Conforto, praticidade e um momento só seu. Sua beleza, nossa prioridade!
-                </p>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.075426745292!2d-46.65342658440709!3d-23.565734367638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1633023226789!5m2!1spt-BR!2sbr"
-                        width="100%"
-                        height="400"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                    ></iframe>
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required>
                 </div>
-                <div class="location-info">
-                    <p>📍 <strong>Endereço:</strong> Rua das Flores, 123 - Centro, Cidade - SP</p>
-                    <p>🕒 <strong>Horário de Funcionamento:</strong> Segunda a Sábado, das 9h às 19h</p>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="Digite seu e-mail" required>
                 </div>
-            </div>
-        </section>
-
-        <!-- Rodapé -->
-        <!-- Seção Signup com Contatos -->
-        <section class="signup-section" id="contato">
-            <div class="signup-content">
-                <h2>Transforme Sua Beleza Hoje!</h2>
-                <p>Não perca a chance de realçar sua beleza com os melhores tratamentos. Agende agora e receba um <strong>desconto exclusivo</strong> na sua primeira visita!</p>
-                <button onclick="window.location.href='https://seusite.com/agendamento'">
-                    <i class="fas fa-calendar-check"></i> Agendar Agora
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" placeholder="Digite seu telefone" required>
+                </div>
+                <div class="form-group">
+                    <label for="servico">Serviço Desejado</label>
+                    <select id="servico" required>
+                        <option value="" disabled selected>Selecione um serviço</option>
+                        <option value="Design de Sobrancelhas">Design de Sobrancelhas</option>
+                        <option value="Alongamento de Cílios">Alongamento de Cílios</option>
+                        <option value="Maquiagem">Maquiagem</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="date" id="data" required>
+                </div>
+                <div class="form-group">
+                    <label for="hora">Hora</label>
+                    <input type="time" id="hora" required>
+                </div>
+                <button type="submit" id="btn-agendar">
+                    <span class="texto-btn">Agendar</span>
+                    <span class="icone-carregando"></span>
+                    <span class="icone-sucesso"></span>
+                    <span class="icone-erro"></span>
                 </button>
-            </div>
+            </form>
         </section>
-        
+
+        <!-- Seção rodapé -->
         <footer class="rodape">
             <div class="rodape-container">
                 <div class="rodape-info">
@@ -347,67 +412,55 @@
         
                 <div class="rodape-links">
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#sobre">Quem Somos</a></li>
-                        <li><a href="#servicos">Nossas Soluções</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                        <li><a href="#contato">Fale Conosco</a></li>
+                        <li><a href="#inicio" class="link-hover">Início</a></li>
+                        <li><a href="#sobre" class="link-hover">Quem Somos</a></li>
+                        <li><a href="#servicos" class="link-hover">Nossas Soluções</a></li>
+                        <li><a href="#depoimentos" class="link-hover">Depoimentos</a></li>
+                        <li><a href="#contato" class="link-hover">Fale Conosco</a></li>
                     </ul>
                 </div>
         
                 <div class="rodape-redes">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="icone-rede">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="icone-rede">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer" class="icone-rede">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
                 </div>
             </div>
         
             <div class="rodape-creditos">
-                <p>Criado por <a href="https://seusite.com" target="_blank" rel="noopener noreferrer">Gustavo Cazzine</a></p>
+                <p>Criado com <span class="coracao">❤️</span> por <a href="https://seusite.com" target="_blank" rel="noopener noreferrer"></a></p>
             </div>
         </footer>
-        <!-- Barra lateral -->
-        <div class="social-bar" id="socialBar">
-            <a href="https://www.instagram.com/studionayraananias" target="_blank" class="social-icon">
-                <img src="assets/img/Icons/icons8-instagram-50.avif" alt="Instagram">
-            </a>
-            <a href="#" target="_blank" class="social-icon">
-                <img src="assets/img/Icons/icons8-facebook-novo-50.avif" alt="Facebook">
-            </a>
-            <a href="https://pinterest.com" target="_blank" class="social-icon">
-                <img src="assets/img/Icons/icons8-pinterest-50.avif" alt="Pinterest">
-            </a>
-            <a href="https://twitter.com" target="_blank" class="social-icon">
-                <img src="assets/img/Icons/icons8-twitter-50.avif" alt="Twitter">
-            </a>
-            <div class="newsletter">FOLLOW</div>
+
+
+        <div class="social-menu">
+            <div class="social-toggle">
+                <img src="assets/img/logo/1-removebg-preview.png" alt="Icone Kátia Fernanda" width="50px" height="50px">
+            </div>
+            <ul class="social-list">
+                <li style="--i:0;--clr:#1877f2">
+                    <a href="#"><img src="assets/img/Icons/icons8-instagram-50.avif" alt="Icone RedesSociais"></a>
+                </li>
+                <li style="--i:1;--clr:#25d366">
+                    <a href="#"><img src="assets/img/Icons/icons8-facebook-novo-50.avif" alt="Icone RedesSociais"></a>
+                </li>
+                <li style="--i:2;--clr:#1da1f2">
+                    <a href="#"><img src="assets/img/Icons/icons8-pinterest-50.avif" alt="Icone RedesSociais"></a>
+                </li>
+                <li style="--i:3;--clr:#FF5733">
+                    <a href="#"><img src="assets/img/Icons/icons8-twitter-50.avif" alt="Icone RedesSociais"></a>
+                </li>
+            </ul>
         </div>
-
-    </main>
-
-    <div class="social-menu">
-        <div class="social-toggle">
-            <img src="assets/img/logo/1.png" alt="Icone Kátia Fernanda" width="50px" height="50px">
-        </div>
-        <ul class="social-list">
-            <li style="--i:0;--clr:#1877f2">
-                <a href="#"><img src="assets/img/Icons/icons8-instagram-50.avif" alt="Icone RedesSociais"></a>
-            </li>
-            <li style="--i:1;--clr:#25d366">
-                <a href="#"><img src="assets/img/Icons/icons8-facebook-novo-50.avif" alt="Icone RedesSociais"></a>
-            </li>
-            <li style="--i:2;--clr:#1da1f2">
-                <a href="#"><img src="assets/img/Icons/icons8-pinterest-50.avif" alt="Icone RedesSociais"></a>
-            </li>
-            <li style="--i:3;--clr:#FF5733">
-                <a href="#"><img src="assets/img/Icons/icons8-twitter-50.avif" alt="Icone RedesSociais"></a>
-            </li>
-        </ul>
-    </div>
-
+        
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 </body>
 </html>

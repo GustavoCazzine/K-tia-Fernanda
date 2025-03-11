@@ -1,85 +1,157 @@
+// Seleciona os elementos do menu
+const menuToggle = document.querySelector('.menu-toggle'); // Botão do menu hambúrguer
+const menu = document.querySelector('.menu'); // Menu de navegação
+const menuLinks = document.querySelectorAll('.menu ul li a'); // Todos os links do menu
+const dropdownToggle = document.querySelector('.dropdown-toggle'); // Botão do submenu "Serviços"
+const dropdown = document.querySelector('.dropdown'); // Container do submenu
 
-// Seleciona o botão do menu e o menu
-const menuToggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
+// Função para abrir/fechar o menu
+function toggleMenu() {
+    if (menu.classList.contains('active')) {
+        // Fecha o menu com animação
+        menu.style.transition = 'opacity 0.3s ease, visibility 0.3s ease, right 0.3s ease'; // Define a transição
+        menu.classList.remove('active'); // Remove a classe 'active'
+        menuToggle.classList.remove('ativo'); // Remove a classe 'ativo' do botão
 
-// Adiciona um evento de clique ao botão
-menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('active'); // Alterna a classe 'active' no menu
-});
-
-// Animação X no icone do menu
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('ativo'); // Adiciona ou remove a classe "ativo"
-});
-
-// Inicialização do Swiper
-const swiper = new Swiper('.mySwiper', {
-    loop: true, // Loop infinito
-    centeredSlides: true, // Centraliza o slide ativo
-    slidesPerView: 'auto', // Ajusta o número de slides visíveis automaticamente
-    spaceBetween: 20, // Espaço entre os slides
-    autoplay: {
-        delay: 3000, // Troca de slide a cada 3 segundos
-        disableOnInteraction: false, // Continua o autoplay após interação
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true, // Permite clicar nos pontos para navegar
-    },
-});
-
-
-// Função debounce para melhorar a performance
-function debounce(func, wait) {
-    let timeout;
-    return function (...args) {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(this, args), wait);
-    };
-}
-
-// Detecta a cor do fundo e muda a cor da barra lateral
-function detectBackgroundColor() {
-    const socialBar = document.getElementById("socialBar");
-    const rect = socialBar.getBoundingClientRect();
-
-    // Verifica apenas o ponto central da barra lateral
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const elementAtCenter = document.elementFromPoint(centerX, centerY);
-    if (!elementAtCenter) return;
-
-    const backgroundColor = window.getComputedStyle(elementAtCenter).backgroundColor;
-
-    // Verifica se o fundo é preto (ou próximo de preto)
-    if (backgroundColor === "rgb(0, 0, 0)" || backgroundColor === "#000000") {
-        socialBar.style.background = "white"; // Troca a cor de fundo da barra lateral
-        socialBar.style.color = "black"; // Troca a cor do texto
+        // Aguarda o fim da animação para resetar a transição
+        setTimeout(() => {
+            menu.style.transition = ''; // Remove a transição após a animação
+        }, 300); // Tempo da animação (0.3s)
     } else {
-        socialBar.style.background = "rgba(255, 255, 255, 0.8)"; // Restaura a cor original
-        socialBar.style.color = ""; // Restaura a cor original do texto
+        // Abre o menu
+        menu.classList.add('active'); // Adiciona a classe 'active'
+        menuToggle.classList.add('ativo'); // Adiciona a classe 'ativo' ao botão
     }
 }
 
-// Adiciona o evento de scroll
-document.addEventListener(
-    "scroll",
-    debounce(() => {
-        const socialBar = document.getElementById("socialBar");
+// Função para abrir/fechar o submenu
+function toggleSubmenu() {
+    dropdown.classList.toggle('active'); // Alterna a classe 'active' no submenu
+}
 
-        if (window.scrollY > 100) {
-            socialBar.classList.add("visible");
-            detectBackgroundColor();
-        } else {
-            socialBar.classList.remove("visible");
+// Função para scroll suave
+function smoothScroll(target) {
+    const element = document.querySelector(target); // Seleciona o elemento alvo
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth', // Scroll suave
+            block: 'start' // Alinha o elemento no topo da tela
+        });
+    }
+}
+
+// Adiciona evento de clique ao botão do menu
+menuToggle.addEventListener('click', toggleMenu);
+
+// Adiciona evento de clique aos links do menu
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        if (!link.classList.contains('dropdown-toggle')) { // Ignora o botão "Serviços"
+            e.preventDefault(); // Evita o comportamento padrão do link
+            const target = link.getAttribute('href'); // Obtém o valor do atributo href
+            smoothScroll(target); // Faz o scroll suave até o elemento alvo
+            toggleMenu(); // Fecha o menu (caso esteja aberto em mobile)
         }
-    }, 100)
-);
+    });
+});
 
-// Adiciona o evento de resize
-window.addEventListener("resize", debounce(detectBackgroundColor, 100));
+// Comportamento do submenu "Serviços"
+if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita o comportamento padrão do link
+        toggleSubmenu(); // Abre/fecha o submenu
+    });
+}
+
+// Fecha o menu e o submenu ao clicar fora deles
+document.addEventListener('click', (e) => {
+    // Verifica se o clique foi fora do menu
+    if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+        if (menu.classList.contains('active')) {
+            toggleMenu(); // Fecha o menu com animação
+        }
+    }
+
+    // Verifica se o clique foi fora do submenu
+    if (dropdown && !dropdown.contains(e.target) && !dropdownToggle.contains(e.target)) {
+        dropdown.classList.remove('active'); // Fecha o submenu
+    }
+});
+
+// Fecha o menu ao redimensionar a tela (se o menu estiver aberto em mobile)
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && menu.classList.contains('active')) {
+        toggleMenu(); // Fecha o menu se a tela for maior que 768px
+    }
+});
+
+
+
+// Reveal ao Rolar
+const sobreMim = document.querySelector('.sobre-mim');
+
+window.addEventListener('scroll', () => {
+    const posicaoSobreMim = sobreMim.getBoundingClientRect().top;
+    const alturaTela = window.innerHeight;
+
+    if (posicaoSobreMim < alturaTela) {
+        sobreMim.classList.add('visible');
+    }
+});
+
+// Expansão dos itens da timeline
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+timelineItems.forEach(item => {
+    item.addEventListener('click', (event) => {
+        event.stopPropagation(); // Impede que o evento se propague para o documento
+
+        // Fecha todos os outros cards abertos
+        timelineItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+                otherItem.classList.remove('active');
+            }
+        });
+
+        // Abre ou fecha o card clicado
+        if (item.classList.contains('active')) {
+            // Adiciona um pequeno atraso para garantir que a animação de fechamento seja suave
+            setTimeout(() => {
+                item.classList.remove('active');
+            }, 10); // 10ms de atraso
+        } else {
+            item.classList.add('active');
+        }
+    });
+});
+
+// Fecha o card ao clicar fora dele
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.timeline-item')) {
+        timelineItems.forEach(item => {
+            if (item.classList.contains('active')) {
+                // Adiciona um pequeno atraso para garantir que a animação de fechamento seja suave
+                setTimeout(() => {
+                    item.classList.remove('active');
+                }, 10); // 10ms de atraso
+            }
+        });
+    }
+});
+
+
+// Exibição dos detalhes dos serviços
+const botoesServico = document.querySelectorAll('.botao-servico');
+
+botoesServico.forEach(botao => {
+    botao.addEventListener('click', () => {
+        const card = botao.closest('.servico-card');
+        const detalhes = card.querySelector('.card-details');
+
+        // Alterna a classe 'active' para exibir ou ocultar os detalhes
+        detalhes.classList.toggle('active');
+    });
+});
 
 
 // Filtro de Categorias
@@ -103,9 +175,8 @@ document.querySelectorAll('.filter-button').forEach(button => {
     });
 });
 
-// Animação de fade-in
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-portfolioItems.forEach(item => {
+// Animação de Fade-In
+document.querySelectorAll('.portfolio-item').forEach(item => {
     item.addEventListener('transitionend', () => {
         if (item.classList.contains('fade-in')) {
             item.style.opacity = '1';
@@ -114,38 +185,132 @@ portfolioItems.forEach(item => {
 });
 
 
-// Virada dos cards
-const cards = document.querySelectorAll('.servico-card');
 
-cards.forEach(card => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-    });
+// Inicialização do Swiper
+const swiper = new Swiper('.mySwiper', {
+    loop: true, // Loop infinito
+    centeredSlides: true, // Centraliza o slide ativo
+    slidesPerView: 'auto', // Ajusta o número de slides visíveis automaticamente
+    spaceBetween: 20, // Espaço entre os slides
+    autoplay: {
+        delay: 3000, // Troca de slide a cada 3 segundos
+        disableOnInteraction: false, // Continua o autoplay após interação
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true, // Permite clicar nos pontos para navegar
+    },
 });
 
 
 
-// Adicionando um efeito de carregamento suave ao mapa
-window.addEventListener('load', () => {
-    const mapContainer = document.querySelector('.map-container iframe');
-    mapContainer.style.opacity = '1';
-    mapContainer.style.transition = 'opacity 1s ease';
+// Seção Agendamento
+document.getElementById('form-agendamento').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Impede o recarregamento da página
+
+    const btnAgendar = document.getElementById('btn-agendar');
+    btnAgendar.classList.add('carregando'); // Ativa o estado de carregamento
+
+    // Coleta os dados do formulário
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+    const telefone = document.getElementById('telefone').value;
+    const servico = document.getElementById('servico').value;
+    const data = document.getElementById('data').value;
+    const hora = document.getElementById('hora').value;
+
+    // Valida os campos
+    if (!nome || !email || !telefone || !servico || !data || !hora) {
+        setTimeout(() => {
+            btnAgendar.classList.remove('carregando');
+            btnAgendar.classList.add('erro'); // Exibe ícone de erro
+            setTimeout(() => {
+                btnAgendar.classList.remove('erro');
+                btnAgendar.querySelector('.texto-btn').style.opacity = '1'; // Restaura o texto
+            }, 2000); // Remove o feedback após 2 segundos
+        }, 300); // Espera um pouco para garantir a animação de carregamento
+        return;
+    }
+
+    // Formata a data/hora para o Google Calendar (ISO 8601)
+    const dataHoraInicio = new Date(`${data}T${hora}:00`);
+    const dataHoraFim = new Date(dataHoraInicio.getTime() + 60 * 60000); // 1 hora de duração
+
+    try {
+        // Envia os dados para o servidor
+        const response = await fetch('http://3.86.192.199:3000/agendar', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                summary: `Agendamento: ${servico} - ${nome}`,
+                start: { dateTime: dataHoraInicio.toISOString(), timeZone: 'America/Sao_Paulo' },
+                end: { dateTime: dataHoraFim.toISOString(), timeZone: 'America/Sao_Paulo' }
+            })
+        });
+
+        // Exibe feedback de sucesso ou erro
+        if (response.ok) {
+            setTimeout(() => {
+                btnAgendar.classList.remove('carregando');
+                btnAgendar.classList.add('sucesso'); // Exibe ícone de sucesso
+                setTimeout(() => {
+                    btnAgendar.classList.remove('sucesso');
+                    btnAgendar.querySelector('.texto-btn').style.opacity = '1'; // Restaura o texto
+                    document.getElementById('form-agendamento').reset(); // Limpa o formulário
+                }, 2000); // Remove o feedback após 2 segundos
+            }, 300); // Espera um pouco para garantir a animação de carregamento
+        } else {
+            throw new Error('Erro ao agendar');
+        }
+    } catch (error) {
+        console.error("Erro ao enviar o formulário:", error);
+        setTimeout(() => {
+            btnAgendar.classList.remove('carregando');
+            btnAgendar.classList.add('erro'); // Exibe ícone de erro
+            setTimeout(() => {
+                btnAgendar.classList.remove('erro');
+                btnAgendar.querySelector('.texto-btn').style.opacity = '1'; // Restaura o texto
+            }, 2000); // Remove o feedback após 2 segundos
+        }, 300); // Espera um pouco para garantir a animação de carregamento
+    }
 });
 
 
-// Efeito de digitação no título
-const text = "Transforme seu Olhar";
-let index = 0;
 
-function typeEffect() {
-    if (index < text.length) {
-        document.getElementById("typing-effect").textContent += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 100); // Velocidade da digitação
+// Scroll Reveal para o rodapé
+const rodape = document.querySelector('.rodape');
+
+function revelarRodape() {
+    const posicaoRodape = rodape.getBoundingClientRect().top;
+    const alturaTela = window.innerHeight;
+
+    if (posicaoRodape < alturaTela) {
+        rodape.style.opacity = '1';
+        rodape.style.transform = 'translateY(0)';
     }
 }
 
-typeEffect();
+window.addEventListener('scroll', revelarRodape);
+
+
+
+
+// Efeito de digitação nos créditos
+const texto = "Gustavo Cazzine";
+const elementoTexto = document.querySelector('.rodape-creditos a');
+let index = 0;
+
+function digitar() {
+    if (index < texto.length) {
+        elementoTexto.textContent += texto.charAt(index);
+        index++;
+        setTimeout(digitar, 100); // Velocidade da digitação
+    }
+}
+
+digitar();
+
+
 
 
 // Barra Vertical RedesSociais
@@ -154,51 +319,4 @@ const socialToggle = document.querySelector(".social-toggle");
 
 socialToggle.addEventListener("click", () => {
     socialMenu.classList.toggle("active");
-});
-
-
-
-// FORMULÁRIO DE AGENDAMEWNTOS ONLINE
-
-document.getElementById('form-agendamento').addEventListener('submit', async function (event) {
-    event.preventDefault();
-
-    const data = document.getElementById('data').value;
-    const hora = document.getElementById('hora').value;
-    const duracao = parseInt(document.getElementById('duracao').value);
-    const titulo = document.getElementById('titulo').value;
-
-    console.log("Dados do formulário:", { data, hora, duracao, titulo });
-
-    if (!data || !hora || !titulo || duracao <= 0) {
-        document.getElementById('mensagem').innerText = "Preencha todos os campos corretamente!";
-        return;
-    }
-
-    const dataHoraInicio = new Date(`${data}T${hora}:00`);
-    const dataHoraFim = new Date(dataHoraInicio.getTime() + duracao * 60000);
-
-    try {
-        console.log("Enviando requisição para o servidor...");
-        const response = await fetch('http://3.86.192.199:3000/agendar', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                summary: titulo,
-                start: { dateTime: dataHoraInicio.toISOString(), timeZone: 'America/Sao_Paulo' },
-                end: { dateTime: dataHoraFim.toISOString(), timeZone: 'America/Sao_Paulo' }
-            })
-        });
-
-        console.log("Resposta do servidor:", response);
-
-        if (response.ok) {
-            document.getElementById('mensagem').innerText = "✅ Evento agendado com sucesso!";
-        } else {
-            document.getElementById('mensagem').innerText = "❌ Erro ao agendar evento.";
-        }
-    } catch (error) {
-        console.error("Erro ao enviar o formulário:", error);
-        document.getElementById('mensagem').innerText = "❌ Erro ao agendar evento. Tente novamente.";
-    }
 });
